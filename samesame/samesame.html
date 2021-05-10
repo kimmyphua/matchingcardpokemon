@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css" />
+
+    <title>Gotta catch them all :D</title>
+</head>
+<body>
+<h1 class="page-title">I wanna' be the Very Best</h1>
+
+<!--<div id="instruction_modal">-->
+<!--    &lt;!&ndash;    <div class="panel">&ndash;&gt;-->
+<!--    &lt;!&ndash;            <div class="modal_screen screen"></div>&ndash;&gt;-->
+
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    <div class="close">X-->
+<!--</div>-->
+
+<div class="overlay-text visible">
+    <div id="instruction">Instructions: Match as many cards as you can before the time runs out! <br> < CLICK TO START! ></div>
+    <img class="gotta" src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png">
+    <!--    Gotta Catch Em All!-->
+</div>
+<div id="game-over-text" class="overlay-text">
+    Ran out of pokeballs :( <br>
+    <span class="overlay-text-small"> <br> Click to Restart</span>
+</div>
+<div id="victory-text" class="overlay-text">
+    PokeMaster in the making! <br>
+    <span class="overlay-text-small"> <br> Click to Restart</span>
+</div>
+<div class="game-container">
+    <div class="game-info-container">
+        <div class="game-info">
+            Time <span id="time-remaining">100</span>
+        </div>
+        <div class="game-info">
+            Flips <span id="flips">0</span>
+        </div>
+        </div>
+
+
+
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980025/memory/Pokemon/Bulbasaur.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980025/memory/Pokemon/Bulbasaur.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980083/memory/Pokemon/Charmander.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980083/memory/Pokemon/Charmander.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980101/memory/Pokemon/Squirtle.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980101/memory/Pokemon/Squirtle.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980116/memory/Pokemon/Pikachu.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980116/memory/Pokemon/Pikachu.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980129/memory/Pokemon/Mewtwo.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980129/memory/Pokemon/Mewtwo.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980186/memory/Pokemon/Eevee.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980186/memory/Pokemon/Eevee.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980154/memory/Pokemon/Articuno.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980154/memory/Pokemon/Articuno.png">
+    </div>
+</div>
+<div class="card">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980164/memory/Pokemon/Zapdos.png">
+    </div>
+</div>
+<div class="card card_modal_1">
+    <div class="card-back card-face">
+        <img class="ball" src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png">
+    </div>
+    <div class="card-front card-face">
+        <img class="poke" src="https://res.cloudinary.com/beumsk/image/upload/v1547980164/memory/Pokemon/Zapdos.png">
+    </div>
+</div>
+</div>
+
+<div id="game__play__area">
+
+</div>
+
+<script src="js/main.js" ></script>
+</body>
+</html>
