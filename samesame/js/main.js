@@ -9,6 +9,157 @@
 
 // level2.addEventListener()
 
+const pokemon = [
+    { name: 'Bulbasaur',
+        img: "https://res.cloudinary.com/beumsk/image/upload/v1547980025/memory/Pokemon/Bulbasaur.png"
+    },
+    { name: 'Bulbasaur',
+        img: "https://res.cloudinary.com/beumsk/image/upload/v1547980025/memory/Pokemon/Bulbasaur.png"
+    },
+    { name: 'Squirtle',
+        img: "https://res.cloudinary.com/beumsk/image/upload/v1547980101/memory/Pokemon/Squirtle.png"
+    },
+    { name: 'Squirtle',
+        img: "https://res.cloudinary.com/beumsk/image/upload/v1547980101/memory/Pokemon/Squirtle.png"
+    },
+    { name: 'Charmander',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980083/memory/Pokemon/Charmander.png'
+    },
+    { name: 'Charmander',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980083/memory/Pokemon/Charmander.png'
+    },
+    { name: 'Pikachu',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980116/memory/Pokemon/Pikachu.png'
+    },
+    { name: 'Pikachu',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980116/memory/Pokemon/Pikachu.png'
+    },
+    { name: 'Mewtwo',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980129/memory/Pokemon/Mewtwo.png'
+    },
+    { name: 'Mewtwo',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980129/memory/Pokemon/Mewtwo.png'
+    },
+    { name: 'Eevee',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980186/memory/Pokemon/Eevee.png'
+    },
+    { name: 'Eevee',
+        img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980186/memory/Pokemon/Eevee.png'
+    },
+    { name: 'Articuno',
+        img: "https://res.cloudinary.com/beumsk/image/upload/v1547980154/memory/Pokemon/Articuno.png"
+    },
+    { name: 'Articuno',
+        img: "https://res.cloudinary.com/beumsk/image/upload/v1547980154/memory/Pokemon/Articuno.png"
+    },
+    { name: 'Zapdos',
+        img:  "https://res.cloudinary.com/beumsk/image/upload/v1547980164/memory/Pokemon/Zapdos.png"
+    },
+    { name: 'Zapdos',
+        img:  "https://res.cloudinary.com/beumsk/image/upload/v1547980164/memory/Pokemon/Zapdos.png"
+    } ]
+
+
+
+    // function flipCard() {
+    //     let cardId = this.getAttribute('data-id')
+    //     cardsChosen.push(cardArray[cardId].name)
+    //     cardsChosenId.push(cardId)
+    //     this.setAttribute('src', cardArray[cardId].img)
+    //     if (cardsChosen.length === 2) {
+    //         setTimeout(checkForMatch, 500)
+    //     }
+    // }
+
+            //card.setAttribute('src', 'https://pngimg.com/uploads/pokeball/pokeball_PNG21.png' )
+            //card.classList.add('size')
+            //card.classList.add('gotta')
+
+           // card.addEventListener('click', flipCard)
+            //grid.appendChild(card)
+
+
+//     < div
+// className = "game-container" >
+//     < div
+// className = "game-info-container" >
+//     < div
+// className = "game-info" >
+//     Time < span
+// id = "time-remaining" > 100 < /span>
+// </div>
+// <div className="game-info">
+// Flips <span id="flips">0</span>
+// </div>
+// </div>
+
+let body = document.querySelector("body")
+let divContainer = document.createElement('div')
+
+
+
+
+for (let i = 0; i < pokemon.length; i++) {
+
+    let div1 = document.createElement('div')
+    let div2 = document.createElement('div')
+    let imgTag1 = document.createElement('img')
+    let div3 = document.createElement('div')
+    let imgTag2 = document.createElement('img')
+
+
+
+    divContainer.classList.add("game-container")
+    div1.classList.add("card")
+    div2.classList.add("card-back", "card-face")
+    imgTag1.setAttribute("src", "https://pngimg.com/uploads/pokeball/pokeball_PNG21.png")
+    imgTag1.classList.add("ball")
+    div3.classList.add("card-front", "card-face")
+
+    imgTag2.setAttribute("src", pokemon[i].img)
+    imgTag2.classList.add("poke")
+
+
+    div1.appendChild(div2)
+    div1.appendChild(div3)
+    div2.appendChild(imgTag1)
+    div3.appendChild(imgTag2)
+    divContainer.appendChild(div1)
+    body.appendChild(divContainer)
+}
+
+
+// function createBoard() {
+//     for (let i = 0; i < cardArray.length; i++) {
+//         var card = document.createElement('img')
+//         card.setAttribute('data-id', i)
+//         card.setAttribute('src', 'https://pngimg.com/uploads/pokeball/pokeball_PNG21.png' )
+//         card.classList.add('size')
+//         card.classList.add('gotta')
+//
+//         card.addEventListener('click', flipCard)
+//         grid.appendChild(card)
+//
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class AudioController {
@@ -185,5 +336,6 @@ cards.forEach(card => {
         game.flipCard(card)
     })
 })
+
 
 
