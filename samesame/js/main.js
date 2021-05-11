@@ -248,7 +248,8 @@ class MatchThemAll {
     }//wait 1 second before flipping back the cards
 
     getCardType(card) {
-        return card.getElementsByClassName('poke')[0].src
+       // return card.getElementsByClassName('poke').src
+       return card.getElementsByClassName('poke')[0].src
 
     }
 
@@ -258,6 +259,11 @@ class MatchThemAll {
             this.timer.innerText = this.timeRemaining
             if (this.timeRemaining === 0)
                 this.gameOver()
+            if (this.timeRemaining === 15){
+                this.shuffleCards()
+                this.audioController.flip()
+            }
+
         }, 1000)
     }
 
@@ -271,15 +277,15 @@ class MatchThemAll {
 
     victory() {
         clearInterval(this.countDown)
-        //game.startGame()
         this.audioController.victory()
         document.getElementById('victory-text').classList.add('visible')
         // this.generateLevel(+2 )
         num +=2
-        console.log("victory()")
     }
 
     shuffleCards() {
+        // this.cardsArray.sort(() => 0.5 - Math.random())
+
         for (let i = this.cardsArray.length - 1; i > 0; i--) {
             let randomIndex = Math.floor(Math.random() * (i + 1))
             this.cardsArray[randomIndex].style.order = i
