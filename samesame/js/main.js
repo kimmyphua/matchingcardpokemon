@@ -76,86 +76,12 @@ const pokemon = [
     }]
 
 
-// function flipCard() {
-//     let cardId = this.getAttribute('data-id')
-//     cardsChosen.push(cardArray[cardId].name)
-//     cardsChosenId.push(cardId)
-//     this.setAttribute('src', cardArray[cardId].img)
-//     if (cardsChosen.length === 2) {
-//         setTimeout(checkForMatch, 500)
-//     }
-// }
-
-//card.setAttribute('src', 'https://pngimg.com/uploads/pokeball/pokeball_PNG21.png' )
-//card.classList.add('size')
-//card.classList.add('gotta')
-
-// card.addEventListener('click', flipCard)
-//grid.appendChild(card)
 
 
-//     < div
-// className = "game-container" >
-//     < div
-// className = "game-info-container" >
-//     < div
-// className = "game-info" >
-//     Time < span
-// id = "time-remaining" > 100 < /span>
-// </div>
-// <div className="game-info">
-// Flips <span id="flips">0</span>
-// </div>
-// </div>
-
-let body = document.querySelector("body")
+let body = document.querySelector("#body")
 let divContainer = document.createElement('div')
 
 
-//function level() {
-// for (let j = 14; j <= 0; j += 2) {
-//      for (let i = 0; i < pokemon.length - 12; i++) {
-//
-//          let div1 = document.createElement('div')
-//          let div2 = document.createElement('div')
-//          let imgTag1 = document.createElement('img')
-//          let div3 = document.createElement('div')
-//          let imgTag2 = document.createElement('img')
-//
-//
-//          divContainer.classList.add("game-container")
-//          div1.classList.add("card")
-//          div2.classList.add("card-back", "card-face")
-//          imgTag1.setAttribute("src", "https://pngimg.com/uploads/pokeball/pokeball_PNG21.png")
-//          imgTag1.classList.add("ball")
-//          div3.classList.add("card-front", "card-face")
-//
-//          imgTag2.setAttribute("src", pokemon[i].img)
-//          imgTag2.classList.add("poke")
-//
-//
-//          div1.appendChild(div2)
-//          div1.appendChild(div3)
-//          div2.appendChild(imgTag1)
-//          div3.appendChild(imgTag2)
-//          divContainer.appendChild(div1)
-//          body.appendChild(divContainer)
-//      }
-// }
-//}
-// function createBoard() {
-//     for (let i = 0; i < cardArray.length; i++) {
-//         var card = document.createElement('img')
-//         card.setAttribute('data-id', i)
-//         card.setAttribute('src', 'https://pngimg.com/uploads/pokeball/pokeball_PNG21.png' )
-//         card.classList.add('size')
-//         card.classList.add('gotta')
-//
-//         card.addEventListener('click', flipCard)
-//         grid.appendChild(card)
-//
-//     }
-// }
 
 
 class AudioController {
@@ -183,23 +109,6 @@ class AudioController {
     }
 }
 
-//1-2
-//2,4
-//3,6
-//shuffle(6)
-//[1,5,1,2,3,5,3]
-//temp []
-
-
-
-
-//
-//
-// let stageArr = [ 1, 2, 3, 4, 5, 6]
-// for(let k=0; k < stageArr ; k++){}
-
-
-
 
 
 
@@ -212,12 +121,12 @@ class MatchThemAll {
         this.timer = document.getElementById('time-remaining')
         this.ticker = document.getElementById('flips')
         this.audioController = new AudioController()
-        //this.level=1
+
     }
 
     startGame() {
 
-        this.generateLevel(2)
+        this.generateLevel(num)
         this.cardToCheck = null //no cards to check
         this.totalClicks = 0
         this.busy = true //basically if this is true, you cannot flip any cards
@@ -232,13 +141,16 @@ class MatchThemAll {
         this.hideCards()
         this.timer.innerText = this.timeRemaining //show countdown
         this.ticker.innerText = this.totalClicks // show no of flips
-
+        console.log("startgame")
     }
 
     generateLevel(num) {
-        //for (let j = 0; j < num ; j+=2) {
-            for (let i = 0; i < pokemon.length - (16 - num); i++) {
+                divContainer.innerHTML = ""
+                let cards = []
+                //console.log("number here",pokemon.length - (16 - num))
 
+                for (let i = 0; i < pokemon.length - (16 - num); i++) {
+                //console.log(pokemon[i])
                 let div1 = document.createElement('div')
                 let div2 = document.createElement('div')
                 let imgTag1 = document.createElement('img')
@@ -266,17 +178,16 @@ class MatchThemAll {
 
             }
 
+        //console.log("generate level")
 
-
-        //generateCards()
 
         let cards = Array.from(document.getElementsByClassName('card'))
         this.cardsArray = cards
-
+        //console.log(cards)
         cards.forEach(card => {
-            console.log("card")
+
             card.addEventListener('click', () => {
-                console.log("flip")
+              // console.log("flip")
                 game.flipCard(card)
             })
         })
@@ -324,7 +235,6 @@ class MatchThemAll {
         card2.classList.add('matched')
         this.audioController.match()
         if (this.matchedCards.length === this.cardsArray.length) {
-            //this.win = true
             this.victory() //win when all cards are matched
         }
 
@@ -364,7 +274,9 @@ class MatchThemAll {
         //game.startGame()
         this.audioController.victory()
         document.getElementById('victory-text').classList.add('visible')
-        // this.generateLevel(  +2)
+        // this.generateLevel(+2 )
+        num +=2
+        console.log("victory()")
     }
 
     shuffleCards() {

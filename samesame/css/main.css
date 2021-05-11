@@ -13,7 +13,7 @@ body {
 
 .page-title{
     color: black;
-    font-family: Impact, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     font-weight: normal;
     text-align: center;
     font-size: 50px;
@@ -27,7 +27,7 @@ body {
 
 .game-info{
     color: black;
-    font-family: Impact, sans-serif;
+    font-family: 'Cute Font', cursive;
     font-weight: normal;
     text-align: center;
     font-size: 34px;
@@ -91,7 +91,7 @@ body {
     align-items: center;
     z-index:100;
     color: black;
-    font-family: Impact, serif;
+    font-family: 'Cute Font', cursive;
 }
 
 .gotta {
