@@ -97,10 +97,11 @@ class AudioController {
     }
     stopMusic() {
         this.backGroundSound.pause();
-        this.backGroundSound.currentTime = 0;
+        this.backGroundSound.currentTime = 0
     }
     battle(){
-        this.backGroundSound.play()
+        this.backGroundSound.play();
+        this.winnerSound.pause()
     }
 
     flip() {
@@ -231,7 +232,7 @@ class MatchThemAll {
             this.ticker.innerText = this.totalClicks
             card.classList.add('visible')
 
-            if (this.totalClicks === this.cardsArray.length){
+            if (this.totalClicks === this.cardsArray.length+2){
                 this.shuffleCards()
                 this.audioController.flip()
             }
@@ -337,7 +338,7 @@ class MatchThemAll {
 
 let overlays = Array.from(document.getElementsByClassName('overlay-text'))
 // let cards = Array.from(document.getElementsByClassName('card'))
-let game = new MatchThemAll(30)
+let game = new MatchThemAll(60)
 
 //remove overlays when clicked (remove visible)
 //start game
