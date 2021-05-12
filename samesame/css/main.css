@@ -34,7 +34,7 @@ body {
 }
 .game-container {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(8, auto);
     grid-gap: 10px;
     margin: 50px;
     justify-content: center;
@@ -103,7 +103,9 @@ body {
 }
 
 .gotta {
-    width: 100%;
+    margin-top: 10%;
+    width: 50%;
+    height: auto;
     animation: dance 2s linear infinite;
 
 }
@@ -193,11 +195,11 @@ body {
 
     margin: 0;
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    padding: 30px;
+    padding: 20px;
     width: fit-content;
     height: auto;
     background-color: white;
@@ -205,7 +207,7 @@ body {
     border-radius: 15px;
     display: inline-flex;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
 }
 /*.close {*/
 /*    position: absolute;*/

@@ -92,8 +92,10 @@ class AudioController {
         this.winnerSound = new Audio('Assets/Audio/winner.mp3')
         this.gameOverSound = new Audio('Assets/Audio/gameover.wav')
         this.backGroundSound = new Audio('Assets/Audio/battle.mp3')
+        this.helpSound = new Audio('Assets/Audio/help.mp3')
         this.backGroundSound.volume = 0.2
         this.backGroundSound.loop = true
+        this.helpSound.loop = true
     }
     stopMusic() {
         this.backGroundSound.pause();
@@ -102,6 +104,7 @@ class AudioController {
     battle(){
         this.backGroundSound.play();
         this.winnerSound.pause()
+        this.helpSound.pause()
     }
 
     flip() {
@@ -115,11 +118,17 @@ class AudioController {
     victory() {
         this.victorySound.play()
         this.stopMusic()
+        this.helpSound.pause()
 
     }
 
     gameOver() {
         this.gameOverSound.play()
+        this.stopMusic()
+    }
+
+    help(){
+        this.helpSound.play()
         this.stopMusic()
     }
 
@@ -232,9 +241,9 @@ class MatchThemAll {
             this.ticker.innerText = this.totalClicks
             card.classList.add('visible')
 
-            if (this.totalClicks === this.cardsArray.length+2){
+            if (this.totalClicks === this.cardsArray.length+3){
                 this.shuffleCards()
-                this.audioController.flip()
+                this.audioController.help()
             }
 
             if (this.cardToCheck)
