@@ -87,9 +87,20 @@ let divContainer = document.createElement('div')
 class AudioController {
     constructor() {
         this.flipSound = new Audio('Assets/Audio/flip.wav')
-        this.matchSound = new Audio('Assets/Audio/match.wav');
-        this.victorySound = new Audio('Assets/Audio/victory.wav');
-        this.gameOverSound = new Audio('Assets/Audio/gameover.wav');
+        this.matchSound = new Audio('Assets/Audio/match.wav')
+        this.victorySound = new Audio('Assets/Audio/LevelUp.mp3')
+        this.winnerSound = new Audio('Assets/Audio/winner.mp3')
+        this.gameOverSound = new Audio('Assets/Audio/gameover.wav')
+        this.backGroundSound = new Audio('Assets/Audio/battle.mp3')
+        this.backGroundSound.volume = 0.2
+        this.backGroundSound.loop = true
+    }
+    stopMusic() {
+        this.backGroundSound.pause();
+        this.backGroundSound.currentTime = 0;
+    }
+    battle(){
+        this.backGroundSound.play()
     }
 
     flip() {
@@ -102,10 +113,18 @@ class AudioController {
 
     victory() {
         this.victorySound.play()
+        this.stopMusic()
+
     }
 
     gameOver() {
         this.gameOverSound.play()
+        this.stopMusic()
+    }
+
+    winner(){
+        this.winnerSound.play()
+        this.stopMusic()
     }
 }
 
@@ -132,6 +151,7 @@ class MatchThemAll {
         this.busy = true //basically if this is true, you cannot flip any cards
         this.timeRemaining = this.totalTime
         this.matchedCards = [] //put the matched cards into new arr
+        this.audioController.battle()
 
         setTimeout(() => {
             this.shuffleCards()
@@ -141,7 +161,7 @@ class MatchThemAll {
         this.hideCards()
         this.timer.innerText = this.timeRemaining //show countdown
         this.ticker.innerText = this.totalClicks // show no of flips
-        console.log("startgame")
+
     }
 
     generateLevel(num) {
@@ -203,18 +223,23 @@ class MatchThemAll {
     }
 
     flipCard(card) {
-        console.log("hi")
+       // console.log("hi")
         if (this.canFlipCard(card)) {
-            console.log("hi")
-            this.audioController.flip();
-            this.totalClicks++;
-            this.ticker.innerText = this.totalClicks;
-            card.classList.add('visible');
+            //console.log("hi")
+            this.audioController.flip()
+            this.totalClicks++
+            this.ticker.innerText = this.totalClicks
+            card.classList.add('visible')
+
+            if (this.totalClicks === this.cardsArray.length){
+                this.shuffleCards()
+                this.audioController.flip()
+            }
 
             if (this.cardToCheck)
-                this.checkForCardMatch(card);
+                this.checkForCardMatch(card)
             else
-                this.cardToCheck = card;
+                this.cardToCheck = card
         }
     }
 
@@ -234,7 +259,10 @@ class MatchThemAll {
         card1.classList.add('matched')
         card2.classList.add('matched')
         this.audioController.match()
-        if (this.matchedCards.length === this.cardsArray.length) {
+        if (this.matchedCards.length === this.cardsArray.length && this.matchedCards.length === 16) {
+            this.champion() //win when all cards are matched
+        }
+        if (this.matchedCards.length === this.cardsArray.length && this.matchedCards.length < 16) {
             this.victory() //win when all cards are matched
         }
 
@@ -259,10 +287,10 @@ class MatchThemAll {
             this.timer.innerText = this.timeRemaining
             if (this.timeRemaining === 0)
                 this.gameOver()
-            if (this.timeRemaining === 15){
-                this.shuffleCards()
-                this.audioController.flip()
-            }
+            // if (this.timeRemaining === 15){
+            //     this.shuffleCards()
+            //     this.audioController.flip()
+            // }
 
         }, 1000)
     }
@@ -273,6 +301,7 @@ class MatchThemAll {
         //game.startGame()
         this.audioController.gameOver()
         document.getElementById('game-over-text').classList.add('visible')
+        num = 2
     }
 
     victory() {
@@ -281,6 +310,13 @@ class MatchThemAll {
         document.getElementById('victory-text').classList.add('visible')
         // this.generateLevel(+2 )
         num +=2
+    }
+
+    champion(){
+        clearInterval(this.countDown)
+        this.audioController.winner()
+        document.getElementById('champion').classList.add('visible')
+        num = 2
     }
 
     shuffleCards() {

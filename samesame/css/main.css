@@ -40,9 +40,17 @@ body {
     justify-content: center;
     perspective: 500px;
 }
+/*.card {*/
+/*    position: relative;*/
+/*    background: radial-gradient(lightpink, white);*/
+/*    height: 175px;*/
+/*    width: 125px;*/
+/*    border-radius: 12px;*/
+/*}*/
+
 .card {
     position: relative;
-    background: radial-gradient(lightpink, white);
+    background: radial-gradient(plum, white);
     height: 175px;
     width: 125px;
     border-radius: 12px;
@@ -100,6 +108,11 @@ body {
 
 }
 
+
+.levelup {
+    width: 20%;
+    height: auto;
+}
 .overlay-text-small {
     font-size: 30px;
 }
@@ -199,4 +212,22 @@ body {
 /*    right: 10px;*/
 /*    top: 10px;*/
 /*    cursor: pointer;*/
+/*}*/
+
+/*#instruction_modal {*/
+/*    display: none;*/
+/*    margin: 0;*/
+/*    position: absolute;*/
+/*    top: 10%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    z-index: 100;*/
+/*    padding: 30px;*/
+/*    width: fit-content;*/
+/*    height: auto;*/
+/*    background-color: white;*/
+/*    border: 1px solid black;*/
+/*    border-radius: 15px;*/
+/*    text-align: center;*/
+/*    font-size: 25px;*/
 /*}*/
