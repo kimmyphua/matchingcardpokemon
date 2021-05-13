@@ -2,9 +2,9 @@
     box-sizing: border-box;
 }
 
-html {
-    min-height: 100vh;
-}
+/*html {*/
+/*    min-height: 100vh;*/
+/*}*/
 
 body {
     margin: auto;
@@ -16,12 +16,12 @@ body {
     font-family: 'Press Start 2P', cursive;
     font-weight: normal;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 /*.game-info-container{*/
-/*    !*grid-column: 2/ 5;*!*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
+/*  left: 0;*/
+/*  top:20%;*/
+
 /*}*/
 
 
@@ -29,14 +29,17 @@ body {
     color: black;
     font-family: 'Cute Font', cursive;
     font-weight: normal;
-    text-align: center;
-    font-size: 34px;
+    font-size: 50px;
+    margin-left: 10%;
+    margin-top: 10%;
+    position: absolute;
+
 }
 .game-container {
     display: grid;
-    grid-template-columns: repeat(8, auto);
+    grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
-    margin: 50px;
+    margin: 20px;
     justify-content: center;
     perspective: 500px;
 }
@@ -51,8 +54,8 @@ body {
 .card {
     position: relative;
     background: radial-gradient(cornflowerblue,whitesmoke);
-    height: 175px;
-    width: 125px;
+    height: 135px;
+    width: 105px;
     border-radius: 12px;
 }
 
@@ -213,8 +216,8 @@ body {
 #reshuffle.visible {
 
     position: absolute;
-    top: 25%;
-    left: 76%;
+    margin-top: 5%;
+    left: 20%;
     transform: translate(-50%, -50%);
     z-index: 100;
     padding: 5px;

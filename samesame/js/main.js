@@ -269,10 +269,8 @@ class MatchThemAll {
                 this.shuffleCards()
                 this.audioController.help()
                 document.getElementById("reshuffle").classList.add("visible")
-                setTimeout(() => {
-                    document.getElementById("reshuffle").classList.remove("visible")
-                }, 9000)
             }
+
 
             if (this.cardToCheck)
                 this.checkForCardMatch(card)
@@ -303,6 +301,7 @@ class MatchThemAll {
         if (this.matchedCards.length === this.cardsArray.length && this.matchedCards.length < 16) {
             this.victory() //win when all cards are matched
         }
+
 
     }
 
@@ -340,6 +339,7 @@ class MatchThemAll {
         this.audioController.gameOver()
         document.getElementById('game-over-text').classList.add('visible')
         num = 2
+        document.getElementById("reshuffle").classList.remove("visible")
     }
 
     victory() {
@@ -348,6 +348,7 @@ class MatchThemAll {
         document.getElementById('victory-text').classList.add('visible')
         // this.generateLevel(+2 )
         num +=2
+        document.getElementById("reshuffle").classList.remove("visible")
     }
 
     champion(){
