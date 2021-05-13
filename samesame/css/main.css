@@ -50,7 +50,7 @@ body {
 
 .card {
     position: relative;
-    background: radial-gradient(plum, white);
+    background: radial-gradient(cornflowerblue,whitesmoke);
     height: 175px;
     width: 125px;
     border-radius: 12px;
@@ -209,6 +209,43 @@ body {
     text-align: center;
     font-size: 35px;
 }
+
+#reshuffle.visible {
+
+    position: absolute;
+    top: 25%;
+    left: 76%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    padding: 5px;
+    width: 250px;
+    height: auto;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    /*text-align: center;*/
+    font-size: 30px;
+    display: inline-flex;
+    animation: blinkingText 0.8s infinite;
+    font-family: 'Cute Font', cursive;
+
+}
+
+
+#reshuffle {
+
+    position: absolute;
+    display: none;
+}
+
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: #000; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
+}
+
 /*.close {*/
 /*    position: absolute;*/
 /*    right: 10px;*/

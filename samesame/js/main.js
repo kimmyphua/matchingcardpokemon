@@ -1,13 +1,3 @@
-// const instruction = document.querySelector("#instruction_modal")
-// const close = document.querySelector(".close")
-// // const level2 = document.querySelector(".card_modal_1")
-//
-// close.addEventListener("click", e => {
-//     instruction.style.display = "none"
-//     game.startGame()
-// })
-
-// level2.addEventListener()
 
 const pokemon = [
     {
@@ -75,7 +65,39 @@ const pokemon = [
         img: "https://res.cloudinary.com/beumsk/image/upload/v1547980164/memory/Pokemon/Zapdos.png"
     }]
 
-
+// const pokemon = [
+//     { name: 'Bulbasaur',
+//         img: "https://res.cloudinary.com/beumsk/image/upload/v1547980025/memory/Pokemon/Bulbasaur.png"
+//     },
+//
+//     { name: 'Squirtle',
+//         img: "https://res.cloudinary.com/beumsk/image/upload/v1547980101/memory/Pokemon/Squirtle.png"
+//     },
+//
+//     { name: 'Charmander',
+//         img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980083/memory/Pokemon/Charmander.png'
+//     },
+//
+//     { name: 'Pikachu',
+//         img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980116/memory/Pokemon/Pikachu.png'
+//     },
+//
+//     { name: 'Mewtwo',
+//         img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980129/memory/Pokemon/Mewtwo.png'
+//     },
+//
+//     { name: 'Eevee',
+//         img: 'https://res.cloudinary.com/beumsk/image/upload/v1547980186/memory/Pokemon/Eevee.png'
+//     },
+//
+//     { name: 'Articuno',
+//         img: "https://res.cloudinary.com/beumsk/image/upload/v1547980154/memory/Pokemon/Articuno.png"
+//     },
+//
+//     { name: 'Zapdos',
+//         img:  "https://res.cloudinary.com/beumsk/image/upload/v1547980164/memory/Pokemon/Zapdos.png"
+//     }
+// ]
 
 
 let body = document.querySelector("#body")
@@ -125,6 +147,7 @@ class AudioController {
     gameOver() {
         this.gameOverSound.play()
         this.stopMusic()
+        this.helpSound.pause()
     }
 
     help(){
@@ -135,6 +158,7 @@ class AudioController {
     winner(){
         this.winnerSound.play()
         this.stopMusic()
+        this.helpSound.pause()
     }
 }
 
@@ -177,9 +201,8 @@ class MatchThemAll {
     generateLevel(num) {
                 divContainer.innerHTML = ""
                 let cards = []
-                //console.log("number here",pokemon.length - (16 - num))
 
-                for (let i = 0; i < pokemon.length - (16 - num); i++) {
+                for (let i = 0; i < 16 - (pokemon.length - num) ; i++) {
                 //console.log(pokemon[i])
                 let div1 = document.createElement('div')
                 let div2 = document.createElement('div')
@@ -208,16 +231,17 @@ class MatchThemAll {
 
             }
 
-        //console.log("generate level")
 
-
-        let cards = Array.from(document.getElementsByClassName('card'))
+        cards = Array.from(document.getElementsByClassName('card'))
+        // let cards1 = cards.concat(cards)
         this.cardsArray = cards
-        //console.log(cards)
+        console.log(cards.length)
         cards.forEach(card => {
-
+            // const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            // card.style.backgroundColor = "#" + randomColor;
+            // let cln = card.cloneNode(true);
+            // divContainer.appendChild(cln)
             card.addEventListener('click', () => {
-              // console.log("flip")
                 game.flipCard(card)
             })
         })
@@ -244,6 +268,10 @@ class MatchThemAll {
             if (this.totalClicks === this.cardsArray.length+3){
                 this.shuffleCards()
                 this.audioController.help()
+                document.getElementById("reshuffle").classList.add("visible")
+                setTimeout(() => {
+                    document.getElementById("reshuffle").classList.remove("visible")
+                }, 9000)
             }
 
             if (this.cardToCheck)
@@ -330,7 +358,6 @@ class MatchThemAll {
     }
 
     shuffleCards() {
-        // this.cardsArray.sort(() => 0.5 - Math.random())
 
         for (let i = this.cardsArray.length - 1; i > 0; i--) {
             let randomIndex = Math.floor(Math.random() * (i + 1))
@@ -358,17 +385,7 @@ overlays.forEach(overlay => {
     })
 })
 
-// console.log(cards)
 
-// let cards = Array.from(document.getElementsByClassName('card'))
-//
-// cards.forEach(card => {
-//     console.log("card")
-//     card.addEventListener('click', () => {
-//         console.log("flip")
-//         game.flipCard(card)
-//     })
-// })
 
 
 
