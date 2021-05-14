@@ -7,4 +7,3 @@ If the cards so not match, they will flip back.
 If the cards match, they will remain visible.
 If player loses a level, player will have to start from level 1 again :D
 
-http://localhost:63342/MatchingCardsGame/samesame/samesame.html?_ijt=jqa6jo6t6jf6dtnjivhlieed4i
