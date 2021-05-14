@@ -102,8 +102,7 @@ const pokemon = [
 
 let body = document.querySelector("#body")
 let divContainer = document.createElement('div')
-
-
+let num = 2
 
 
 class AudioController {
@@ -127,6 +126,7 @@ class AudioController {
         this.backGroundSound.play();
         this.winnerSound.pause()
         this.helpSound.pause()
+
     }
 
     flip() {
@@ -356,6 +356,7 @@ class MatchThemAll {
         this.audioController.winner()
         document.getElementById('champion').classList.add('visible')
         num = 2
+        document.getElementById("reshuffle").classList.remove("visible")
     }
 
     shuffleCards() {
